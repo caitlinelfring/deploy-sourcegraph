@@ -18,3 +18,20 @@ kubectl create namespace ns-sourcegraph --dry-run=client -o yaml | kubectl apply
 kubectl label namespace ns-sourcegraph name=ns-sourcegraph
 
 kubectl apply --prune -l deploy=sourcegraph -f generated-cluster --recursive $@
+
+# When running locally or without vault -- uncomment
+# resources:gitserver/gitserver.ExternalSecret.yaml in overlays/custom/kustomization.yaml
+# # This is for using a local ssh key instead of one stored in vault
+# BUILD_DIR=$(mktemp -d)
+# export BUILD_DIR
+
+# cleanup() {
+#   rm -rf "${BUILD_DIR}"
+# }
+# trap cleanup EXIT
+
+# ssh-keyscan github.com >"${BUILD_DIR}/known_hosts"
+
+# kubectl create secret generic -n ns-sourcegraph gitserver-ssh \
+#   --from-file id_rsa=${HOME}/.ssh/id_rsa_passwordless \
+#   --from-file known_hosts="${BUILD_DIR}/known_hosts"
