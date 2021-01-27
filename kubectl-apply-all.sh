@@ -10,6 +10,11 @@
 # in conjunction with -f base and -l deploy=sourcegraph. Otherwise, it will delete all resources
 # previously created by create or apply that are not specified in the command.
 #
-# Apply the base Soucegraph deployment
+# Apply the base Sourcegraph deployment
 # shellcheck disable=SC2068
+
+# https://docs.sourcegraph.com/admin/install/kubernetes/configure#using-networkpolicy
+kubectl create namespace ns-sourcegraph --dry-run=client -o yaml | kubectl apply -f -
+kubectl label namespace ns-sourcegraph name=ns-sourcegraph
+
 kubectl apply --prune -l deploy=sourcegraph -f generated-cluster --recursive $@
