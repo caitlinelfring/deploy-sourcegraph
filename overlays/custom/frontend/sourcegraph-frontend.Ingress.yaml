@@ -4,8 +4,6 @@ metadata:
   name: sourcegraph-frontend
   annotations:
     cert-manager.io/cluster-issuer: my-cluster-issuer # TODO update
-    # We can upload large files (extensions)
-    nginx.ingress.kubernetes.io/proxy-body-size: "150m"
     # See
     # https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/
     # for more nginx annotations.
