@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: gitserver
+spec:
+  template:
+    spec:
+      containers:
+      - name: gitserver
+        volumeMounts:
+        - mountPath: /root/.ssh
+          name: ssh
+      volumes:
+      - name: ssh
+        secret:
+          defaultMode: 384
+          secretName: gitserver-ssh

@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: sourcegraph-frontend
+  annotations:
+    cert-manager.io/cluster-issuer: my-cluster-issuer # TODO update
+    # We can upload large files (extensions)
+    nginx.ingress.kubernetes.io/proxy-body-size: "150m"
+    # See
+    # https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/
+    # for more nginx annotations.
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    # TODO: Configure this
+    # nginx.ingress.kubernetes.io/whitelist-source-range: ""
+spec:
+  # See the customization guide (../../../docs/configure.md) for information
+  # about configuring TLS
+  # TODO: Update these for the appropriate hostname
+  tls:
+    - hosts:
+      - sourcegraph.example.com
+      secretName: sourcegraph.example.com-cert
+      host: sourcegraph.example.com
