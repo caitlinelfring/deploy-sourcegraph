@@ -30,4 +30,4 @@ spec:
           servicePort: 30080
     # If you're using TLS/SSL, uncomment the following line and replace 'sourcegraph.rtr.cloud' with the real
     # domain that you want to use for your Sourcegraph instance.
-    # host: sourcegraph.rtr.cloud
+    host: sourcegraph.rtr.cloud
