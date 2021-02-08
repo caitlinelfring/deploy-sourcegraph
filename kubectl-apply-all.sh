@@ -14,7 +14,7 @@
 # shellcheck disable=SC2068
 
 # https://docs.sourcegraph.com/admin/install/kubernetes/configure#using-networkpolicy
-kubectl create namespace ns-sourcegraph --dry-run=client -o yaml | kubectl apply -f -
+kubectl create namespace ns-sourcegraph --dry-run=true -o yaml | kubectl apply -f -
 kubectl label namespace ns-sourcegraph name=ns-sourcegraph
 
 kubectl apply --prune -l deploy=sourcegraph -f generated-cluster --validate=false --recursive $@
