@@ -8,7 +8,7 @@ This folder contains the deployment manifests for the [Javascript/Typescript lan
 
 TLS/SSL is required for secure communication with the language server. Once you have completed ["Configure TLS/SSL"](../../../docs/configure.md#configure-tlsssl) in [docs/configure.md](../../../docs/configure.md#configure-tlsssl), for your overall Sourcegraph instance, you'll need to configure TLS/SSL for the Javascript/Typescript language server as well. 
 
-The Javascript/Typescript language server needs it's own domain (e.g. `typescript.sourcegraph.example.com`), and an SSL certificate/key for that domain.
+The Javascript/Typescript language server needs it's own domain (e.g. `typescript.sourcegraph.rtr.cloud`), and an SSL certificate/key for that domain.
 
 1. Create a [TLS secret](https://kubernetes.io/docs/concepts/configuration/secret/) that contains your TLS certificate and private key for the Javascript/Typescript language server.
 
@@ -32,12 +32,12 @@ The Javascript/Typescript language server needs it's own domain (e.g. `typescrip
         # See the customization guide (../../../docs/configure.md) for information
         # about configuring TLS
         #
-        # Make sure to replace 'typescript.sourcegraph.example.com' with the real domain that you are
+        # Make sure to replace 'typescript.sourcegraph.rtr.cloud' with the real domain that you are
         # using for the Javascript/Typescript language server.
-        - typescript.sourcegraph.example.com
+        - typescript.sourcegraph.rtr.cloud
         secretName: typescript-tls
         rules:
-        - host: typescript.sourcegraph.example.com
+        - host: typescript.sourcegraph.rtr.cloud
     ```
 
 **WARNING:** Do NOT commit the actual TLS cert and key files to your fork (unless your fork is

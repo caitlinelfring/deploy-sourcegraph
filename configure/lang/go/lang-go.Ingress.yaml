@@ -27,12 +27,12 @@ spec:
       # See the customization guide (../../../docs/configure.md) for information
       # about configuring TLS
       #
-      # Make sure to replace 'go.sourcegraph.example.com' with the real domain that you are
+      # Make sure to replace 'go.sourcegraph.rtr.cloud' with the real domain that you are
       # using for the Go language server.
-      - go.sourcegraph.example.com
+      - go.sourcegraph.rtr.cloud
       secretName: go-tls
     rules:
-    - host: go.sourcegraph.example.com
+    - host: go.sourcegraph.rtr.cloud
       http:
         paths:
         - path: /

@@ -16,6 +16,6 @@ spec:
   # TODO: Update these for the appropriate hostname
   tls:
     - hosts:
-      - sourcegraph.example.com
-      secretName: sourcegraph.example.com-cert
-      host: sourcegraph.example.com
+      - sourcegraph.rtr.cloud
+      secretName: sourcegraph.rtr.cloud-cert
+      host: sourcegraph.rtr.cloud

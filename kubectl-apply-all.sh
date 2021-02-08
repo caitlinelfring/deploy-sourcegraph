@@ -17,7 +17,7 @@
 kubectl create namespace ns-sourcegraph --dry-run=client -o yaml | kubectl apply -f -
 kubectl label namespace ns-sourcegraph name=ns-sourcegraph
 
-kubectl apply --prune -l deploy=sourcegraph -f generated-cluster --recursive $@
+kubectl apply --prune -l deploy=sourcegraph -f generated-cluster --validate=false --recursive $@
 
 # When running locally or without vault -- uncomment
 # resources:gitserver/gitserver.ExternalSecret.yaml in overlays/custom/kustomization.yaml

@@ -8,7 +8,7 @@ This folder contains the deployment manifests for the [Go language extension](ht
 
 TLS/SSL is required for secure communication with the language server. Once you have completed ["Configure TLS/SSL"](../../../docs/configure.md#configure-tlsssl) in [docs/configure.md](../../../docs/configure.md#configure-tlsssl), for your overall Sourcegraph instance, you'll need to configure TLS/SSL for the Go language server as well.  
 
-The Go language server needs its own domain (e.g. `go.sourcegraph.example.com`), and an SSL certificate/key for that domain.
+The Go language server needs its own domain (e.g. `go.sourcegraph.rtr.cloud`), and an SSL certificate/key for that domain.
 
 1. Create a [TLS secret](https://kubernetes.io/docs/concepts/configuration/secret/) that contains your TLS certificate and private key for the Go language server.
 
@@ -32,12 +32,12 @@ The Go language server needs its own domain (e.g. `go.sourcegraph.example.com`),
         # See the customization guide (../../../docs/configure.md) for information
         # about configuring TLS
         #
-        # Make sure to replace 'go.sourcegraph.example.com' with the real domain that you are
+        # Make sure to replace 'go.sourcegraph.rtr.cloud' with the real domain that you are
         # using for the Go language server.
-        - go.sourcegraph.example.com
+        - go.sourcegraph.rtr.cloud
         secretName: go-tls
         rules:
-        - host: go.sourcegraph.example.com
+        - host: go.sourcegraph.rtr.cloud
     ```
 
 **WARNING:** Do NOT commit the actual TLS cert and key files to your fork (unless your fork is

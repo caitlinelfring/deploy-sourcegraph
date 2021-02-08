@@ -27,12 +27,12 @@ spec:
       # See the customization guide (../../../docs/configure.md) for information
       # about configuring TLS
       # 
-      # Make sure to replace 'typescript.sourcegraph.example.com' with the real domain that you are
+      # Make sure to replace 'typescript.sourcegraph.rtr.cloud' with the real domain that you are
       # using for the Javascript/Typescript language server.
-      - typescript.sourcegraph.example.com
+      - typescript.sourcegraph.rtr.cloud
       secretName: typescript-tls
     rules:
-    - host: typescript.sourcegraph.example.com
+    - host: typescript.sourcegraph.rtr.cloud
       http:
         paths:
         - path: /
