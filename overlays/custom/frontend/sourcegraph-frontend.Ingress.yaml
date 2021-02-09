@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: sourcegraph-frontend
   annotations:
-    cert-manager.io/cluster-issuer: my-cluster-issuer # TODO update
+    cert-manager.io/issuer: sourcegraph-issuer
     # See
     # https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/
     # for more nginx annotations.
@@ -18,4 +18,4 @@ spec:
     - hosts:
       - sourcegraph.rtr.cloud
       secretName: sourcegraph.rtr.cloud-cert
-      host: sourcegraph.rtr.cloud
+

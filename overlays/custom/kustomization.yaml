@@ -7,6 +7,7 @@ resources:
   - base/sourcegraph.StorageClass.yaml
   - base/sourcegraph.NetworkPolicy.yaml
   - gitserver/gitserver.ExternalSecret.yaml
+  - certmanager/certmanager.Issuer.yaml
 patchesStrategicMerge:
   - frontend/sourcegraph-frontend.Ingress.yaml
   - gitserver/gitserver.StatefulSet.yaml

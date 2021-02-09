@@ -1,0 +1,19 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Issuer
+metadata:
+  name: sourcegraph-issuer
+  labels:
+    deploy: sourcegraph
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: sre@renttherunway.com
+    privateKeySecretRef:
+      name: sourcegraph-private-key
+    solvers:
+      - dns01:
+          clouddns:
+            project: rtr-management-0d0687b7
+            serviceAccountSecretRef:
+              name: service-account-credentials-secret # (provided by terraform)
+              key: credentials.json
