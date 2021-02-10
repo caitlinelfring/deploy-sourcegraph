@@ -54,6 +54,10 @@ spec:
           value: sg
         - name: SRC_GIT_SERVERS
           value: gitserver-0.gitserver:3178
+        - name: SITE_CONFIG_FILE
+          value: /etc/sourcegraph/site/site.json
+        - name : EXTSVC_CONFIG_FILE
+          value: /etc/sourcegraph/extsvc/extsvc.json
         # POD_NAME is used by CACHE_DIR
         - name: POD_NAME
           valueFrom:
@@ -99,6 +103,10 @@ spec:
         volumeMounts:
         - mountPath: /mnt/cache
           name: cache-ssd
+        - mountPath: /etc/sourcegraph/site
+          name: site-json
+        - mountPath: /etc/sourcegraph/extsvc
+          name: extsvc-json
       - name: jaeger-agent
         image: index.docker.io/sourcegraph/jaeger-agent:insiders@sha256:e90c2c2ac039b81ce865785b1bf0ec23a2c7e38c721612f5d13408e805a9e4a8
         env:
@@ -132,3 +140,9 @@ spec:
       volumes:
       - emptyDir: {}
         name: cache-ssd
+      - name: site-json
+        secret:
+          secretName: sourcegraph-site-json
+      - name: extsvc-json
+        secret:
+          secretName: sourcegraph-extsvc-json
